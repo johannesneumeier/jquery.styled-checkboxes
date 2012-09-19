@@ -1,0 +1,1 @@
+Simple jquery plugin to transform checkboxes to css styled checkboxes

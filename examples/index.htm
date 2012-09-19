@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Test</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        
+        <script type="text/javascript" src="../js/jquery/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"></script>
+        <link rel="stylesheet" href="../themes/raw/styled-checkboxes.css" />
+        
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('form input[type="checkbox"]').styledCheckboxes();
+        });
+        </script>
+        
+        <style type="text/css">
+            code {
+                white-space: pre;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tests</h1>
+        
+        <p>Include jquery, jquery.styled-checkboxes.js and your theme css</p>
+        <code>
+            &lt;script type="text/javascript" src="path/to/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
+            &lt;script type="text/javascript" src="path/to/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"&gt;&lt;/script&gt;
+            &lt;link rel="stylesheet" href="path/to/jquery.styled-checkboxes/themes/raw/styled-checkboxes.css" /&gt;
+        </code>
+        <p>Example form html</p>
+        <code>
+            &lt;form&gt;
+                &lt;label for="a-checkbox"&gt;Normal checkbox:&lt;/label&gt;
+                &lt;input name="a-checkbox" type="checkbox" /&gt;
+                
+                &lt;br/&gt;
+                
+                &lt;label for="some-checkbox"&gt;Checked checkbox:&lt;/label&gt;
+                &lt;input name="some-checkbox" type="checkbox" checked="checked" /&gt;
+                
+                &lt;br/&gt;
+                
+                &lt;label&gt;
+                    Checkbox within a label
+                    &lt;input type="checkbox" /&gt;    
+                &lt;/label&gt;
+            &lt;/form&gt;
+        </code>
+        <p>Transform the checkboxes like this</p>
+        <code>
+            &lt;script type="text/javascript"&gt;
+            $(document).ready(function () {
+                $('form input[type="checkbox"]').styledCheckboxes();
+            });
+            &lt;/script&gt;
+        </code>
+        
+        
+        <form>
+            <label for="a-checkbox">Normal checkbox:</label>
+            <input name="a-checkbox" type="checkbox" />
+            
+            <br/>
+            
+            <label for="some-checkbox">Checked checkbox:</label>
+            <input name="some-checkbox" type="checkbox" checked="checked" />
+            
+            <br/>
+            
+            <label>
+                Checkbox within a label
+                <input type="checkbox" />    
+            </label>
+        </form>
+    </body>
+</html>
