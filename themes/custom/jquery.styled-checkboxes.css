@@ -2,9 +2,9 @@
 /* edit your theme's checkboxes */
 
 span.custom-checkbox {
-    outline: 1px solid cyan;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #666666;
     border-radius: 5px;
+    box-shadow: 0 0 5px #9999AA, inset 0 0 3px #DDDDFF;
     cursor: pointer;
     display: inline-block;
     height: 1em;
@@ -13,15 +13,39 @@ span.custom-checkbox {
 }
 
 span.custom-checkbox:hover {
-    outline: 1px solid violet;
+    border: 2px solid #333333;
+    box-shadow: 0 0 5px #333366;
 }
 
 span.custom-checkbox.checked {
-    background: pink;
+    background: #BBBBCC;
 }
 
-span.custom-checkbox.checked:hover {
-    outline: 1px solid blue;
+
+/* tick */
+span.custom-checkbox .styled-checkboxes-tick {
+    border: 0.05em solid #666666;
+    border-radius: 4px;
+    display: none;
+    height: 0.5em;
+    margin: 0.2em;
+    text-indent: -9999px;
+    width: 0.5em;
+}
+
+span.custom-checkbox.checked .styled-checkboxes-tick {    
+    background: #333333;
+    display: inline-block;
+}
+
+span.custom-checkbox:hover .styled-checkboxes-tick {
+    background: #666699;
+    box-shadow: 0 0 3px #666699;
+    display: inline-block;
+}
+
+span.custom-checkbox.checked:hover .styled-checkboxes-tick {
+    background: #BBBBCC;
 }
 
 

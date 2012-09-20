@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Test</title>
+        <title>jQuery.styled-checkboxes examples</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         
         <script type="text/javascript" src="../js/jquery/jquery-1.8.1.min.js"></script>
@@ -15,53 +15,72 @@
             
             $('form.example-custom input[type="checkbox"]').styledCheckboxes({
                 'wrapper': 'span',
-                'wrapperClass': 'custom-checkbox'
+                'wrapperClass': 'custom-checkbox',
+                'tick': 'span'
             });
         });
         </script>
         
         <style type="text/css">
-            code {
-                white-space: pre;
-            }
+        body {
+            background: #EEEEEE;
+        }
+        h1, h2, h3, p, dl {
+            max-width: 40em;
+        }
+        h2, h3 {
+            margin: 2em 0 1em;
+        }
+        code {
+            background: #FFFFFF;
+            border: 1px dashed #666666;
+            border-radius: 1em;
+            display: block;
+            margin: 1em;
+            padding: 1em;
+            white-space: pre;
+        }
         </style>
     </head>
     <body>
-        <h1>Tests</h1>
+        <h1>jQuery.styled-checkboxes examples</h1>
         
+        <h2>Basic setup</h2>
         <p>Include jquery, jquery.styled-checkboxes.js and your theme css</p>
-        <code>
-            &lt;script type="text/javascript" src="path/to/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
-            &lt;script type="text/javascript" src="path/to/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"&gt;&lt;/script&gt;
-            &lt;link rel="stylesheet" href="path/to/jquery.styled-checkboxes/themes/raw/jquery.styled-checkboxes.css" /&gt;
-        </code>
+<code>
+&lt;script type="text/javascript" src="PATH/TO/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="PATH/TO/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="PATH/TO/jquery.styled-checkboxes/themes/raw/jquery.styled-checkboxes.css" /&gt;
+</code>
+        <p>The included raw theme is a very stripped-down version that let's you easily modify the theme to include
+            background-images or other css markup to customize your own theme</p>
         <p>Example form html</p>
-        <code>
-            &lt;form&gt;
-                &lt;label for="a-checkbox"&gt;Normal checkbox:&lt;/label&gt;
-                &lt;input name="a-checkbox" type="checkbox" /&gt;
-                
-                &lt;br/&gt;
-                
-                &lt;label for="some-checkbox"&gt;Checked checkbox:&lt;/label&gt;
-                &lt;input name="some-checkbox" type="checkbox" checked="checked" /&gt;
-                
-                &lt;br/&gt;
-                
-                &lt;label&gt;
-                    Checkbox within a label
-                    &lt;input type="checkbox" /&gt;    
-                &lt;/label&gt;
-            &lt;/form&gt;
-        </code>
+<code>
+&lt;form&gt;
+    &lt;label for="a-checkbox"&gt;Normal checkbox:&lt;/label&gt;
+    &lt;input name="a-checkbox" type="checkbox" /&gt;
+    
+    &lt;br/&gt;
+    
+    &lt;label for="some-checkbox"&gt;Checked checkbox:&lt;/label&gt;
+    &lt;input name="some-checkbox" type="checkbox" checked="checked" /&gt;
+    
+    &lt;br/&gt;
+    
+    &lt;label&gt;
+        Checkbox within a label
+        &lt;input type="checkbox" /&gt;    
+    &lt;/label&gt;
+&lt;/form&gt;
+</code>
         <p>Transform the checkboxes like this</p>
-        <code>
-            &lt;script type="text/javascript"&gt;
-            $(document).ready(function () {
-                $('form input[type="checkbox"]').styledCheckboxes();
-            });
-            &lt;/script&gt;
-        </code>
+<code>
+&lt;script type="text/javascript"&gt;
+$(document).ready(function () {
+    $('form input[type="checkbox"]').styledCheckboxes();
+});
+&lt;/script&gt;
+</code>
         
         
         <form class="example-default">
@@ -81,6 +100,42 @@
             </label>
         </form>
         
+        
+        <h2>Customized setup</h2>
+        <p>
+            Like in the basic setup, include jquery, jquery.styled-checkboxes, and
+            link to your customized css
+        </p>
+        
+<code>
+&lt;script type="text/javascript" src="PATH/TO/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="PATH/TO/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="PATH/TO/jquery.styled-checkboxes/themes/YOURTHEME/jquery.styled-checkboxes.css" /&gt;
+</code>
+        <p>
+            Then setup jquery.styled-checkboxes with custom settings
+        </p>
+        <p>
+            In this instance, the default wrapping element was changed to a be a 
+            span with class .custom-checkbox. Also, the default value for 'tick'
+            was overwritten from 'false' to 'span', which means that there is
+            an additional element to show the checked status inside the wrapper,
+            which you can style seperately.
+        </p>
+<code>
+&lt;script type="text/javascript"&gt;
+$(document).ready(function () {
+    $('form.example-default input[type="checkbox"]').styledCheckboxes();
+    
+    $('form.example-custom input[type="checkbox"]').styledCheckboxes({
+        'wrapper': 'span',
+        'wrapperClass': 'custom-checkbox',
+        'tick': 'span'
+    });
+});
+&lt;/script&gt;
+</code>
+        
         <form class="example-custom">
             <label for="a-checkbox">Normal checkbox:</label>
             <input name="a-checkbox" type="checkbox" />
@@ -97,5 +152,57 @@
                 <input type="checkbox" />    
             </label>
         </form>
+        
+        <h2>List of options you can modify</h2>
+        <dl>
+            <dt>checkedClass</dt>
+            <dd>class that the wrapper of a checked checkbox has, like so: 
+                <strong>'checkedClass' : 'your-css-class'</strong> (notice, no . 
+                in front of the css class), 
+                <br/>
+                defaults to <em>checked</em></dd>
+            
+            <dt>tick</dt>
+            <dd>if you want an additional html element inside the checkbox 
+                wrapper, set it here like so: <strong>'tick' : 'span'</strong>, 
+                <br/>
+                defaults to <em>false</em></dd>
+            
+            <dt>tickClass</dt>
+            <dd>class of the additional tick html element, set it like this:
+                <strong>'tickClass' : 'your-css-class'</strong> (notice, no .
+                in front of the css class), 
+                <br/>
+                defaults to <em>styled-checkboxes-tick</em></dd>
+                
+            <dt>tickContent</dt>
+            <dd>if you want any content inserted in the tick, you could add an
+                'x'-letter like this: <strong>'tickContent' : 'x'</strong>. you
+                can set this content to be hidden when a checkbox is not checked
+                by using css. 
+                <br/>
+                defaults to <em>&amp;nbsp;</em> (resulting in an empty space)</dd>
+            
+            <dt>wrapper</dt>
+            <dd>use this to set what html element is being used to wrap the checkbox, 
+                use it like so: <strong>'wrapper' : 'span'</strong>, 
+                <br/>
+                defaults to <em>div</em></dd>
+                
+            <dt>wrapperClass</dt>
+            <dd>the css class given to the wrapping html element, customize it by
+                using: <strong>'wrapperClass' : 'your css class'</strong> (again,
+                the css class without a .). 
+                <br/>
+                defaults to <em>styled-checkboxes</em></dd>
+        </dl>
+        
+        <h3>You can submit your themes, improve this plugin and documentation by
+            sending a pull request</h3>
+            
+        <p>Disclaimer: This software is provived "as is" and you can use it for
+            whatever purposed you want to. You are encouraged to modify where you
+            see fit or neccesairy for your usage purposes. If you have improvements,
+            you are welcome to submit them back to this repository.</p>
     </body>
 </html>

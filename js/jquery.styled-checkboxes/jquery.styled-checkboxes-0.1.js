@@ -16,6 +16,7 @@
     
     // internal helpers
     var tickSelector = '';
+    var tickElement = '';
     var wrapperSelector = '';
     
     // collection of methods the plugin can call like so:
@@ -29,6 +30,9 @@
             wrapperSelector = settings.wrapper + '.' + settings.wrapperClass;
             if (settings.tick !== false) {
                 tickSelector = settings.tick + '.' + settings.tickClass;
+                tickElement = '<' + settings.tick + ' class="' 
+                    + settings.tickClass + '">' + settings.tickContent 
+                    + '</' + settings.tick + '>';
             }
                         
             // return chainable jQuery selection
@@ -42,6 +46,10 @@
                 $this.wrap('<' + settings.wrapper + ' class="' 
                     + settings.wrapperClass 
                     + ' ' + checked + '"/>');
+                    
+                if (settings.tick !== false) {
+                    $this.before(tickElement);
+                }
                          
                 // attach        
                 $this.parent(wrapperSelector).bind('click.styledCheckboxes', 
@@ -80,14 +88,9 @@
             // add or remove visual 'checked' classes 
             if ($this.has('input[type="checkbox"]:checked').length === 1) {
                 $this.removeClass(settings.checkedClass)
-                    .find('input[type="checkbox"]').removeAttr('checked');
-                if (settings.tick !== false) {
-                    $this.find(tickSelector).remove();
-                }
+                    .find('input[type="checkbox"]').removeAttr('checked');                
             } else {
                 $this.addClass(settings.checkedClass)
-                    .append('<' + settings.tick + ' class="' + settings.tickSelector
-                        + '">' + settings.tickContent + '</' + settings.tick + '>')
                     .find('input[type="checkbox"]').attr('checked', 'checked');
             }
         }
