@@ -1,0 +1,34 @@
+
+/* edit your theme's checkboxes */
+
+span.custom-checkbox {
+    outline: 1px solid cyan;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    width: 1em;
+}
+
+span.custom-checkbox:hover {
+    outline: 1px solid violet;
+}
+
+span.custom-checkbox.checked {
+    background: pink;
+}
+
+span.custom-checkbox.checked:hover {
+    outline: 1px solid blue;
+}
+
+
+/* do not edit below this point unless you know what you are doing */
+
+/* this hides the real checkbox */
+span.custom-checkbox input[type="checkbox"] {
+    position: relative;
+    left: -9999px;
+}

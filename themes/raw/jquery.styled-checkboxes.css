@@ -1,0 +1,32 @@
+
+/* edit your theme's checkboxes */
+
+div.styled-checkboxes {
+    border: 1px solid red;
+    cursor: pointer;
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    width: 1em;
+}
+
+div.styled-checkboxes:hover {
+    border: 1px solid violet;
+}
+
+div.styled-checkboxes.checked {
+    background: pink;
+}
+
+div.styled-checkboxes.checked:hover {
+    border: 1px solid blue;
+}
+
+
+/* do not edit below this point unless you know what you are doing */
+
+/* this hides the real checkbox */
+div.styled-checkboxes input[type="checkbox"] {
+    position: relative;
+    left: -9999px;
+}

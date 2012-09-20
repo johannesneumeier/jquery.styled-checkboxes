@@ -6,11 +6,17 @@
         
         <script type="text/javascript" src="../js/jquery/jquery-1.8.1.min.js"></script>
         <script type="text/javascript" src="../js/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"></script>
-        <link rel="stylesheet" href="../themes/raw/styled-checkboxes.css" />
+        <link rel="stylesheet" href="../themes/raw/jquery.styled-checkboxes.css" />
+        <link rel="stylesheet" href="../themes/custom/jquery.styled-checkboxes.css" />
         
         <script type="text/javascript">
         $(document).ready(function () {
-            $('form input[type="checkbox"]').styledCheckboxes();
+            $('form.example-default input[type="checkbox"]').styledCheckboxes();
+            
+            $('form.example-custom input[type="checkbox"]').styledCheckboxes({
+                'wrapper': 'span',
+                'wrapperClass': 'custom-checkbox'
+            });
         });
         </script>
         
@@ -27,7 +33,7 @@
         <code>
             &lt;script type="text/javascript" src="path/to/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
             &lt;script type="text/javascript" src="path/to/jquery.styled-checkboxes/jquery.styled-checkboxes-0.1.js"&gt;&lt;/script&gt;
-            &lt;link rel="stylesheet" href="path/to/jquery.styled-checkboxes/themes/raw/styled-checkboxes.css" /&gt;
+            &lt;link rel="stylesheet" href="path/to/jquery.styled-checkboxes/themes/raw/jquery.styled-checkboxes.css" /&gt;
         </code>
         <p>Example form html</p>
         <code>
@@ -58,7 +64,24 @@
         </code>
         
         
-        <form>
+        <form class="example-default">
+            <label for="a-checkbox">Normal checkbox:</label>
+            <input name="a-checkbox" type="checkbox" />
+            
+            <br/>
+            
+            <label for="some-checkbox">Checked checkbox:</label>
+            <input name="some-checkbox" type="checkbox" checked="checked" />
+            
+            <br/>
+            
+            <label>
+                Checkbox within a label
+                <input type="checkbox" />    
+            </label>
+        </form>
+        
+        <form class="example-custom">
             <label for="a-checkbox">Normal checkbox:</label>
             <input name="a-checkbox" type="checkbox" />
             
